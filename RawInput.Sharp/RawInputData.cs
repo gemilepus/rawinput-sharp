@@ -93,6 +93,7 @@ namespace Linearstar.Windows.RawInput
 
         public static void DefRawInputProc(RawInputData[] data) =>
             User32.DefRawInputProc(data.SelectMany(i => i.ToStructure()).ToArray());
+        .
 
         public abstract byte[] ToStructure();
     }

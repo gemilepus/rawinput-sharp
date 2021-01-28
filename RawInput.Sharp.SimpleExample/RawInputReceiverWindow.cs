@@ -22,6 +22,7 @@ namespace RawInput.Sharp.SimpleExample
 
         protected override void WndProc(ref Message m)
         {
+           
             const int WM_INPUT = 0x00FF;
 
             if (m.Msg == WM_INPUT)
@@ -30,6 +31,7 @@ namespace RawInput.Sharp.SimpleExample
 
                 Input?.Invoke(this, new RawInputEventArgs(data));
             }
+            Console.WriteLine("[+]uMsg: " + m.Msg + ", hwnd: " + m.HWnd + ", wParam: " + m.WParam + ", lParam: {0:x}" , m.LParam.ToInt32());
 
             base.WndProc(ref m);
         }
